@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for entry in "/examples/$1/original"/*
+do
+    echo "PAGE: $entry"
+    
+    filename=$(basename -- "$entry")
+    #echo $filename
+
+    #extension="${filename##*.}"
+    #echo $extension
+
+    name="${filename%.*}"
+    #echo $name
+
+    tesseract $entry /examples/$1/recognised/$name
+done
+
+
